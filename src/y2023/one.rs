@@ -39,14 +39,14 @@ fn map_index(arr: &[u8], find_replace: &Vec<(&[u8], i32)>) -> Vec<i32> {
     for i in 0..arr.len() {
         for (y, map_to) in find_replace.iter() {
             if i+y.len()-1 < arr.len() {
-                let mut worked = true;
+                let mut matched = true;
                 for j in 0..y.len() {
                     if arr[i+j] != y[j] {
-                        worked = false;
+                        matched = false;
                         break
                     }
                 }
-                if worked {
+                if matched {
                     values.push(*map_to);
                 }
             }
